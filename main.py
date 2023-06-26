@@ -10,6 +10,8 @@ branco = (255,255,255)
 estrelas={}
 pygame.display.set_caption("Space Marker")
 pygame.display.set_icon(nave)
+pygame.mixer.music.load("Space_Machine_Power.mp3")
+pygame.mixer.music.play(-1)
 
 running = True
 while running:
@@ -24,9 +26,14 @@ while running:
                 item = "Desconhecido"+str(pos)
             estrelas[item] = pos
             print(estrelas)
-
+            arquivo = open("Histórico de estrelas","a")
+            arquivo.write(item+"\n")
+            arquivo.close
 
     tela.fill(branco)
     tela.blit(fundo,(-100,0))
+
+    
+
     pygame.display.update()
 pygame.quit()
